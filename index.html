@@ -29,6 +29,7 @@
       font-weight: bold;
       transition: 0.3s;
       cursor: pointer;
+      border: none;
     }
     .btn-primary:hover {
       background: #0056b3;
@@ -83,11 +84,9 @@
   <section class="cta">
     <h2>Ready to Boost Your Business?</h2>
     <p>Let’s work together to increase your clicks, convert visitors into paying customers, and grow your revenue year-round.</p>
-    <!-- Button that opens the modal -->
-    <button id="open-contact-form" class="btn-primary">
-      Contact Me Today
-    </button>
+    <button id="open-contact-form" class="btn-primary">Contact Me Today</button>
   </section>
+
   <footer>
     <p>&copy; 2025 BrightByte Studio. All rights reserved.</p>
   </footer>
@@ -98,29 +97,33 @@
       <span class="modal-close" id="modal-close">&times;</span>
       <iframe src="https://form.jotform.com/252205354252145" title="BrightByte Studio Contact Form"></iframe>
     </div>
+  </div>
+
+  <!-- JavaScript at the end of body -->
   <script>
-    const openBtn = document.getElementById('open-contact-form');
-    const modal = document.getElementById('modal-overlay');
-    const closeBtn = document.getElementById('modal-close');
+    window.addEventListener('DOMContentLoaded', () => {
+      const openBtn = document.getElementById('open-contact-form');
+      const modal = document.getElementById('modal-overlay');
+      const closeBtn = document.getElementById('modal-close');
 
-    openBtn.addEventListener('click', () => {
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
+      openBtn.addEventListener('click', () => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
 
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
+      closeBtn.addEventListener('click', () => {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-      }
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
     });
   </script>
 
 </body>
 </html>
-
