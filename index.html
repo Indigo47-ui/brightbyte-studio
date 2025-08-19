@@ -1,324 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BrightByte Studio | Boost Your Clicks & Sales</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrightByte Studio</title>
   <style>
-    /* Reset & base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
     body {
-      background: #f4f7f9;
-      color: #333;
+      margin: 0;
+      font-family: Arial, sans-serif;
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
-    a {
-      color: #0078d7;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #005aab;
-    }
-    /* Container */
     .container {
       max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 25px;
-      width: 90%;
+      margin: auto;
+      padding: 20px;
     }
-    /* Header & Navigation */
-    header {
-      background: linear-gradient(90deg, #0078d7, #005aab);
-      color: #fff;
-      padding: 30px 0;
+    .about, .cta {
       text-align: center;
-      letter-spacing: 1.2px;
-      box-shadow: 0 4px 15px rgba(0, 90, 171, 0.4);
-    }
-    header h1 {
-      font-weight: 800;
-      font-size: 2.8rem;
-      font-family: 'Segoe UI Black', Tahoma, Geneva, Verdana, sans-serif;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-    }
-    header p {
-      font-size: 1.3rem;
-      margin-top: 10px;
-      font-weight: 400;
-      font-style: italic;
-      letter-spacing: 0.3px;
-    }
-    /* Hero Section */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1548&q=80') no-repeat center center/cover;
-      color: #fff;
-      padding: 100px 20px 80px;
-      text-align: center;
-      border-radius: 12px;
-      margin: 50px 0 70px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-      position: relative;
-    }
-    .hero h2 {
-      font-size: 3.2rem;
-      margin-bottom: 25px;
-      text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.75);
-    }
-    .hero p {
-      font-size: 1.5rem;
-      max-width: 720px;
-      margin: 0 auto 40px;
-      line-height: 1.5;
-      font-weight: 500;
-      text-shadow: 1.5px 1.5px 10px rgba(0, 0, 0, 0.6);
+      padding: 40px 20px;
     }
     .btn-primary {
-      background-color: #ff6f61;
-      border: none;
-      padding: 18px 45px;
-      font-size: 1.2rem;
-      border-radius: 50px;
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 7px 20px rgba(255, 111, 97, 0.5);
-      transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.25s ease;
-    }
-    .btn-primary:hover,
-    .btn-primary:focus {
-      background-color: #e65b4f;
-      box-shadow: 0 10px 30px rgba(230, 91, 79, 0.6);
-      transform: translateY(-3px);
-      outline: none;
-    }
-    /* Features Section */
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 35px;
-      margin-bottom: 70px;
-    }
-    .feature {
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      padding: 35px 30px;
-      flex: 1 1 30%;
-      min-width: 280px;
-      text-align: center;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .feature:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
-    }
-    .feature h3 {
-      margin-bottom: 20px;
-      font-size: 1.75rem;
-      color: #0078d7;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .feature p {
-      font-size: 1.15rem;
-      color: #555;
-      line-height: 1.5;
-      font-weight: 400;
-    }
-    /* About Section */
-    .about {
-      background: #fff;
-      padding: 50px 40px;
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      margin-bottom: 70px;
-    }
-    .about h2 {
-      font-size: 2.3rem;
-      margin-bottom: 30px;
-      color: #0078d7;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: 1px;
-    }
-    .about p {
-      max-width: 820px;
-      margin: 0 auto;
-      font-size: 1.25rem;
-      color: #444;
-      line-height: 1.8;
-      text-align: center;
-      font-weight: 500;
-    }
-    /* CTA Section */
-    .cta {
-      background: #ff6f61;
-      color: #fff;
-      padding: 45px 25px;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(255,111,97,0.5);
-      margin-bottom: 50px;
-    }
-    .cta h2 {
-      font-size: 2.3rem;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-    .cta p {
-      font-size: 1.35rem;
-      margin-bottom: 30px;
-      font-weight: 400;
-      font-style: italic;
-    }
-    .cta a.btn-primary {
       display: inline-block;
-      padding: 18px 50px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      border-radius: 50px;
-      box-shadow: 0 7px 20px rgba(255, 111, 97, 0.6);
-      transition: background-color 0.35s ease, box-shadow 0.35s ease;
-    }
-    .cta a.btn-primary:hover {
-      background-color: #e65b4f;
-      box-shadow: 0 10px 30px rgba(230, 91, 79, 0.7);
-    }
-    /* Footer */
-    footer {
-      background: linear-gradient(90deg, #0078d7, #005aab);
+      padding: 12px 20px;
+      background: #007BFF;
       color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+    footer {
       text-align: center;
-      padding: 22px 15px;
-      font-size: 0.95rem;
-      letter-spacing: 0.07em;
-      font-weight: 600;
-      box-shadow: 0 -3px 12px rgba(0, 90, 171, 0.5);
+      padding: 20px;
+      background: #f4f4f4;
     }
-    /* Responsive */
-    @media (max-width: 868px) {
-      .features {
-        flex-direction: column;
-        align-items: center;
-      }
-      .feature {
-        max-width: 480px;
-        margin: 0 auto;
-      }
-      .hero h2 {
-        font-size: 2.4rem;
-      }
-      .hero p {
-        font-size: 1.2rem;
-      }
-    }
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2.1rem;
-      }
-      .hero h2 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1.1rem;
-      }
-      .btn-primary {
-        padding: 14px 30px;
-        font-size: 1rem;
-      }
-      .features {
-        gap: 25px;
-      }
-    }
-    /* Modal Styles for Contact Form */
+    /* Modal Styles */
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
       justify-content: center;
       align-items: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
       z-index: 1000;
     }
     .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
+      display: flex;
     }
     .modal-content {
+      position: relative;
       background: #fff;
       width: 90%;
-      max-width: 700px;
-      max-height: 90vh;
-      border-radius: 14px;
-      padding: 15px 25px 25px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-      position: relative;
-      overflow-y: auto;
+      max-width: 600px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .modal-content iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
     }
     .modal-close {
       position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #555;
+      top: 10px; right: 15px;
+      font-size: 24px;
       cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    .modal-close:hover {
-      color: #ff6f61;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>BrightByte Studio</h1>
-      <p>Professional management & time-efficient strategies to grow your business all year round</p>
-    </div>
-  </header>
-
-  <section class="hero">
-    <h2>Drive More Traffic & Maximize Sales</h2>
-    <p>Expertly crafted solutions to elevate your digital presence and convert visitors into loyal customers.</p>
-    <button class="btn-primary" id="open-contact-form">Get Started Now</button>
-  </section>
-
-  <section class="container features">
-    <div class="feature">
-      <h3>Effective Time Management</h3>
-      <p>Streamlined processes and priority-driven approaches to save time and increase productivity.</p>
-    </div>
-    <div class="feature">
-      <h3>Skilled Management</h3>
-      <p>Hands-on leadership ensuring your campaigns are executed flawlessly with measurable results.</p>
-    </div>
-    <div class="feature">
-      <h3>Year-round Growth</h3>
-      <p>Consistent strategies designed to maintain momentum and boost clicks and purchases through every season.</p>
-    </div>
-  </section>
 
   <section class="about container">
     <h2>Why Choose BrightByte Studio?</h2>
@@ -328,9 +83,10 @@
   <section class="cta">
     <h2>Ready to Boost Your Business?</h2>
     <p>Let’s work together to increase your clicks, convert visitors into paying customers, and grow your revenue year-round.</p>
-    <a href="mailto:bulito47@gmail.com?subject=Boost%20My%20Business&body=Hi,%20I%20am%20interested%20in%20your%20services." class="btn-primary" target="_blank" rel="noopener noreferrer">
+    <!-- Button that opens the modal -->
+    <button id="open-contact-form" class="btn-primary">
       Contact Me Today
-    </a>
+    </button>
   </section>
 
   <footer>
@@ -352,7 +108,7 @@
 
     openBtn.addEventListener('click', () => {
       modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      document.body.style.overflow = 'hidden';
     });
 
     closeBtn.addEventListener('click', () => {
@@ -367,5 +123,6 @@
       }
     });
   </script>
+
 </body>
 </html>
