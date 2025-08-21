@@ -4,24 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BrightByte Studio</title>
-  <link rel="stylesheet" href="style.css">
-  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="0" />
-  <meta http-equiv="Expires" content="0" />
+  
+  <!-- ✅ CSS directly in HTML -->
+  <style>
+    /* Reset & Base */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    /* About & CTA sections */
+    .about, .cta {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .about h2, .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .about p, .cta p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      line-height: 1.8;
+    }
+
+    /* Button */
+    .btn-primary, #open-contact-form {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #007BFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover, #open-contact-form:hover {
+      background: #0056b3;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f4f4f4;
+      font-size: 0.9rem;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      background: #fff;
+      width: 90%;
+      max-width: 600px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .modal-close:hover {
+      color: #000;
+    }
+  </style>
 </head>
 <body>
 
+  <!-- About Section -->
   <section class="about container">
     <h2>Why Choose BrightByte Studio?</h2>
     <p>As a dedicated web developer and professional with expertise in management and time optimization, BrightByte Studio brings a unique blend of technical skills and effective leadership to ensure your company’s online success. We focus on measurable growth through clear, actionable strategies tailored to your business needs.</p>
   </section>
 
+  <!-- Call to Action -->
   <section class="cta">
     <h2>Ready to Boost Your Business?</h2>
     <p>Let’s work together to increase your clicks, convert visitors into paying customers, and grow your revenue year-round.</p>
     <button id="open-contact-form" class="btn-primary">Contact Me Today</button>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 BrightByte Studio. All rights reserved.</p>
   </footer>
@@ -34,8 +140,32 @@
     </div>
   </div>
 
- <script src="script.js"></script>
+  <!-- ✅ JS directly in HTML -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const openBtn = document.getElementById('open-contact-form');
+      const modal = document.getElementById('modal-overlay');
+      const closeBtn = document.getElementById('modal-close');
+
+      openBtn.addEventListener('click', () => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+          }
+      });
+    });
+  </script>
+
 </body>
 </html>
-
 
